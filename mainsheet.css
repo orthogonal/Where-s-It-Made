@@ -1,0 +1,106 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+#header{
+	background-color: blue;
+}
+
+#zip{
+	width: 100%
+}
+
+#in_header{
+	padding: 5px;
+	background-color: pink;
+	position: relative;
+	height: 20px;
+}
+
+#form_itemsearch{
+	background-color: red;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#form_sort{
+	background-color: purple;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#center{
+	background-color: #5C5A5A;
+	padding: 20px;
+	position: relative;
+}
+
+#center_table{
+	border-bottom: 6px solid #132CBD;
+	width: 100%;
+}
+
+#center_header td{
+	border-bottom: 3px solid #132CBD;
+	text-align: center;
+}
+
+#newitem_div{
+	background-color: pink;
+	padding: 10px;
+	height: 120px;
+	width: 100%;
+}
+
+#formprompt{
+	background-color: blue;
+	width: 100%;
+	font-size: 24px;
+}
+
+#newitem{
+	height: 100%;
+	background-color: purple;
+}
+
+#newitem_table{
+	float: left;
+	width: 70%;
+	top: 20px;
+	left: 0;
+	font-size: 20px;
+}
+
+#button_div{
+	float: left;
+	width: 30%;
+	height: 100%;
+	background-color: red;
+	position: relative;
+}
+
+#new_submit{
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	font-size: 24px;
+}
+
+#foot{
+	clear: both;
+}
+
+.col1, .col2{
+	width: 48%;
+}
+.spacer{
+	width: 4%;
+}
+
+.new_entry{
+	float: right;
+	font-size: 20px;
+}

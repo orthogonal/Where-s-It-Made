@@ -6,9 +6,7 @@
 <script src="http://www.lathamcity.com/_js/jquery-1.7.js"></script>
 <script>
 $(document).ready(function() {
-	var mapPosition = $('#mapimg').offset();
-	var mapHeight = $('#mapimg').height();
-	$('#titlespan').offset({left: mapPosition.left, top: (mapPosition.top + mapHeight)});
+	
 }); //end ready
 </script>
 </head>
@@ -22,7 +20,7 @@ $(document).ready(function() {
 </div>
 
 <div id="formDiv">
-	<form method="post" action="search.php" id="search">
+	<form method="post" action="main.php" id="search">
 		<table>
 		<tr><td>
 			<span id="prompt">Enter Zip Code:</span>
