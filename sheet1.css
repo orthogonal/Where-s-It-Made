@@ -1,3 +1,65 @@
 body {
+	background-color: black;
+	color: white;
+}
+
+#top{
+	background-color: green;
+}
+#picture{
+	position: relative;
+	width: 619px;
+	height: 285px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title{
+	position: absolute;
+	bottom: 10px;
+	width: 619px;
+	text-align: center;
+	font-size: 54px;
+	font-family: calibri, sans-serif;
+	z-index: 1;
+}
+
+#formDiv{
+	position: relative;
+	background-color: pink;
+}
+
+#search{
+	padding-top: 100px;
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: red;
+}
+
+#prompt{
+	padding-top: 6px;
+	font-size: 24px;
+	float: left;
+}
+
+input[type="text"]{
+	font-size: 24px;
+	float: right;
+}
+
+#buttonRow{
+	text-align: center;
+}
+
+input[type="submit"]{
+	font-size: 16px;
+}
+
+#links{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-align: right;
 	background-color: blue;
 }
