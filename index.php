@@ -34,7 +34,7 @@ $(document).ready(function() {
 </div>
 
 <div id="links">
-	<button id="about_button" onclick="window.location.href='about.php'">About</button>
+	<button id="about_button" onclick="window.location.href='about.html'">About</button>
 	<button id="contact_button" onclick="window.location.href='contact.php'">Contact</button>
 	<button id="investors_button" onclick="window.location.href='investors.php'">Investors</button>
 	<button id="faq_button" onclick="window.location.href='faq.php'">FAQ</button>
