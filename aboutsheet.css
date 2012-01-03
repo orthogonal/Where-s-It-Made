@@ -2,3 +2,24 @@ body {
 	background-color: black;
 	color: white;
 }
+
+#titlediv{
+	background-color: red;
+	color: blue;
+	font-size: 24px;
+	border-bottom:  3px solid blue;
+}
+
+.question{
+	background-color: pink;
+	border-bottom:  3px solid blue;
+}
+
+.header{
+	color: blue;
+	font-size: 16px;
+}
+
+.answer{
+	margin-left: 50px;
+}
