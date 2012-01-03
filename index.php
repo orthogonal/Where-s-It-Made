@@ -35,9 +35,9 @@ $(document).ready(function() {
 
 <div id="links">
 	<button id="about_button" onclick="window.location.href='about.html'">About</button>
-	<button id="contact_button" onclick="window.location.href='contact.php'">Contact</button>
-	<button id="investors_button" onclick="window.location.href='investors.php'">Investors</button>
-	<button id="faq_button" onclick="window.location.href='faq.php'">FAQ</button>
+	<button id="contact_button" onclick="window.location.href='contact.html'">Contact</button>
+	<button id="investors_button" onclick="window.location.href='investors.html'">Investors</button>
+	<button id="faq_button" onclick="window.location.href='faq.html'">FAQ</button>
 </div>
 
 </body>
