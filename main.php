@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 	require_once("login.php");
+		$db_server = mysql_connect($db_hostname, $db_username, $db_password);
+		mysql_select_db($db_database, $db_server);	?>
 <html>
 <head>
 <title>Where's It Made?</title>
@@ -46,7 +49,16 @@ $(document).ready(function() {
 			<td style="width: 10%">Zip Code</td>
 			<td style="width: 15%">Country of Origin</td>
 		</tr>
-<?php
+<?php	$query = "SELECT * FROM main WHERE zip=\"$zip\"";
+		$result = mysql_query($query) or die(mysql_error());
+		$rows = mysql_num_rows($result);
+		for ($i = 0; $i < $rows; $i++){
+			echo "<tr>";
+			$thisrow = mysql_fetch_row($result);
+			for ($j = 1; $j < 7; $j++)
+				echo "<td>$thisrow[$j]</td>";
+			echo "</tr>";
+		} ?>
 	
 	</table>
 </div>
@@ -79,3 +91,4 @@ $(document).ready(function() {
 </div>
 </body>
 </html>
+<?php mysql_close($db_server); ?>
