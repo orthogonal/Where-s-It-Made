@@ -46,6 +46,8 @@ $(document).ready(function() {
 			<td style="width: 10%">Zip Code</td>
 			<td style="width: 15%">Country of Origin</td>
 		</tr>
+<?php
+	
 	</table>
 </div>
 
@@ -64,7 +66,7 @@ $(document).ready(function() {
 			<td class="col2">Address: <input type="name" name="new_item_address" size="30" maxlength="100" class="new_entry"/></td>
 		</tr>
 		<tr>
-			<td class="col1">Description: <input type="name" name="new_item_description" size="30" maxlength="30" class="new_entry"/></td>
+			<td class="col1">Description: <input type="name" name="new_item_description" size="30" maxlength="100" class="new_entry"/></td>
 			<td class="spacer">
 			<td class="col2"><input type="name" name="new_item_zip" size="5" maxlength="5" class="new_entry"/><span class="new_entry">Zip Code:&nbsp&nbsp&nbsp</span></td>
 		</tr>
