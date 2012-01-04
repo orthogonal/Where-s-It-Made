@@ -7,13 +7,51 @@
 <title>Where's It Made?</title>
 <link rel="stylesheet" type="text/css" href="mainsheet.css" />
 <script src="http://www.lathamcity.com/_js/jquery-1.7.js"></script>
+<script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
 <script>
 $(document).ready(function() {
-	
+	$('#newitem').validate(function(){
+		rules: {
+			new_item_name: {
+				required: true,
+				minlength: 2
+				},
+			new_item_store: {
+				required: true,
+				minlength: 2
+				},
+			new_item_price: {
+				required: true,
+				number: true,
+				min: 0
+				},
+			new_item_address: {
+				required: true,
+				minlength: 2
+				},
+			new_item_description: {
+				required: true,
+				minlength: 1
+				},
+			new_item_zip: {
+				required: true,
+				digits: true,
+				range: [10000, 99999]
+				}
+		}
+	});
 }); //end ready
 <?php $zip = $_POST['zip']; ?>
 </script>
 </head>
+
+/*		 <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry"/></td>
+ <input type="name" name="new_item_store" size="30" maxlength="100" class="new_entry"/></td>
+$<input type="name"  name="new_item_price" size="30" maxlength="30" /></span></td>
+<input type="name" name="new_item_address" size="30" maxlength="100" class="new_entry"/></td>
+<input type="name" name="new_item_description" size="30" maxlength="100" class="new_entry"/></td>
+<input type="name" name="new_item_zip" size="5" maxlength="5" class="new_entry"/>
+*/
 
 <body>
 <div id="header">
