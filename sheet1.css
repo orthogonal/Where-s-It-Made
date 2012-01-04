@@ -3,9 +3,6 @@ body {
 	color: white;
 }
 
-#top{
-	background-color: green;
-}
 #picture{
 	position: relative;
 	width: 619px;
@@ -26,7 +23,6 @@ body {
 
 #formDiv{
 	position: relative;
-	background-color: pink;
 }
 
 #search{
@@ -34,7 +30,6 @@ body {
 	width: 350px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: red;
 }
 
 #prompt{
@@ -61,5 +56,4 @@ input[type="submit"]{
 	bottom: 0;
 	right: 0;
 	text-align: right;
-	background-color: blue;
 }

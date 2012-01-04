@@ -40,11 +40,14 @@ $(document).ready(function() {
 				}
 		}
 	});
-	<?php $zip = $_POST['zip']; 
-	if ($zip == null){
+}); //end ready
+
+<?php 
+	$zipsearch = $_POST['zip']; 
+	if ($zipsearch == null){
 		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
 		}
-		
+	$zipsearch = intval($zipsearch);
 	$name = $_POST['new_item_name'];
 	$store = $_POST['new_item_store'];
 	$price = $_POST['new_item_price'];
@@ -62,24 +65,26 @@ $(document).ready(function() {
 		return mysql_real_escape_string($string);
 	}
 	
-	$name = fix_string($name);
-	$store = fix_string($store);
-	$price = fix_string($price);
-	$address = fix_string($address);
-	$description = fix_string($description);
-	$zip = fix_string($zip);
 	
 	
-
+	if (
+		$name != null && 
+		$store != null && 
+		$price != null &&
+		$address != null &&
+		$description != null &&
+		(10000 <= $zip) && ($zip <= 99999)){
+		$query = ("INSERT INTO main VALUES (NULL ,  '$name',  '$price',  '$description',  '$address',  '$zip',  '$store')");
+		$result = mysql_query($query) or die(mysql_error());
+	}
 	?>
-}); //end ready
 </script>
 </head>
 
 <body>
 <div id="header">
 	<span id="zip">
-		<?php echo "$zip"; ?>
+		<?php echo "$zipsearch"; ?>
 	</span>
 	
 	<div id="in_header">
@@ -110,7 +115,7 @@ $(document).ready(function() {
 			<td style="width: 10%">Zip Code</td>
 			<td style="width: 15%">Country of Origin</td>
 		</tr>
-<?php	$query = "SELECT * FROM main WHERE zip=\"$zip\"";
+<?php	$query = "SELECT * FROM main WHERE zip=\"$zipsearch\"";
 		$result = mysql_query($query) or die(mysql_error());
 		$rows = mysql_num_rows($result);
 		for ($i = 0; $i < $rows; $i++){
@@ -126,7 +131,7 @@ $(document).ready(function() {
 
 <div id="newitem_div">
 	<span id="formprompt">Enter an item</span>
-	<form id="newitem">
+	<form method="post" action="main.php" id="newitem">
 	<table id="newitem_table">
 		<tr>
 			<td class="col1">Item: <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry"/></td>
@@ -147,7 +152,7 @@ $(document).ready(function() {
 	<div id="button_div">
 		<input type="submit" value="Submit" id="new_submit"/>
 	</div>
-		<input type="hidden" name="zip" value="<?php echo "$zip" ?>" />
+		<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 	</form>
 	<div id="foot"></div>
 </div>

@@ -3,37 +3,29 @@ body {
 	color: white;
 }
 
-#header{
-	background-color: blue;
-}
-
 #zip{
 	width: 100%
 }
 
 #in_header{
 	padding: 5px;
-	background-color: pink;
 	position: relative;
 	height: 20px;
 }
 
 #form_itemsearch{
-	background-color: red;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
 #form_sort{
-	background-color: purple;
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
 #center{
-	background-color: #5C5A5A;
 	padding: 20px;
 	position: relative;
 }
@@ -49,21 +41,18 @@ body {
 }
 
 #newitem_div{
-	background-color: green;
 	padding: 10px;
 	height: 120px;
 	width: 100%;
 }
 
 #formprompt{
-	background-color: blue;
 	width: 100%;
 	font-size: 24px;
 }
 
 #newitem{
 	height: 100%;
-	background-color: purple;
 }
 
 #newitem_table{
@@ -78,7 +67,6 @@ body {
 	float: left;
 	width: 30%;
 	height: 100%;
-	background-color: red;
 	position: relative;
 }
 
