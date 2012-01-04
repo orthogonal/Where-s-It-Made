@@ -44,6 +44,33 @@ $(document).ready(function() {
 	if ($zip == null){
 		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
 		}
+		
+	$name = $_POST['new_item_name'];
+	$store = $_POST['new_item_store'];
+	$price = $_POST['new_item_price'];
+	$address = $_POST['new_item_address'];
+	$description = $_POST['new_item_description'];
+	$zip = $_POST['new_item_zip'];
+	
+	function fix_string($string){
+		return htmlentities(mysqlfix($string));
+	}
+	
+	function mysqlfix($string){
+		if (get_magic_quotes_gpc())
+			$string = stripslashes($string);
+		return mysql_real_escape_string($string);
+	}
+	
+	$name = fix_string($name);
+	$store = fix_string($store);
+	$price = fix_string($price);
+	$address = fix_string($address);
+	$description = fix_string($description);
+	$zip = fix_string($zip);
+	
+	
+
 	?>
 }); //end ready
 </script>
