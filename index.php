@@ -4,9 +4,17 @@
 <title>Where's It Made?</title>
 <link rel="stylesheet" type="text/css" href="sheet1.css" />
 <script src="http://www.lathamcity.com/_js/jquery-1.7.js"></script>
+<script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
 <script>
 $(document).ready(function() {
-	
+	$('#search').validate({
+		rules: {
+			zip: {
+					required: true,
+					range: [10000, 99999]
+				}
+		}
+	});
 }); //end ready
 </script>
 </head>

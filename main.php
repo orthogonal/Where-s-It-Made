@@ -10,7 +10,7 @@
 <script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
 <script>
 $(document).ready(function() {
-	$('#newitem').validate(function(){
+	$('#newitem').validate({
 		rules: {
 			new_item_name: {
 				required: true,
@@ -40,18 +40,14 @@ $(document).ready(function() {
 				}
 		}
 	});
+	<?php $zip = $_POST['zip']; 
+	if ($zip == null){
+		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
+		}
+	?>
 }); //end ready
-<?php $zip = $_POST['zip']; ?>
 </script>
 </head>
-
-/*		 <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry"/></td>
- <input type="name" name="new_item_store" size="30" maxlength="100" class="new_entry"/></td>
-$<input type="name"  name="new_item_price" size="30" maxlength="30" /></span></td>
-<input type="name" name="new_item_address" size="30" maxlength="100" class="new_entry"/></td>
-<input type="name" name="new_item_description" size="30" maxlength="100" class="new_entry"/></td>
-<input type="name" name="new_item_zip" size="5" maxlength="5" class="new_entry"/>
-*/
 
 <body>
 <div id="header">
@@ -124,6 +120,7 @@ $<input type="name"  name="new_item_price" size="30" maxlength="30" /></span></t
 	<div id="button_div">
 		<input type="submit" value="Submit" id="new_submit"/>
 	</div>
+		<input type="hidden" name="zip" value="<?php echo "$zip" ?>" />
 	</form>
 	<div id="foot"></div>
 </div>
