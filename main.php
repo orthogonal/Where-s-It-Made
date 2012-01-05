@@ -6,6 +6,7 @@
 		$zipsearch = intval($zipsearch);
 		$sort_style = "name ASC";
 		if ($_POST['sortingstyle'] != null) $sort_style = $_POST['sortingstyle'];
+		$searchtext = $_POST['searchtext'];
 ?>
 <html>
 <head>
@@ -68,7 +69,7 @@ $(document).ready(function() {
 		$('#sortstyle_hold').attr('value', styler);
 		$('#styleform').submit();
 	});
-	$('#center_table').html('<?php buildTable($sort_style, $zipsearch); ?>');
+	$('#center_table').html('<?php buildTable($sort_style, $zipsearch, $searchtext); ?>');
 }); //end ready
 
 <?php 
@@ -114,7 +115,7 @@ if (!empty($_POST['new_item_name'])) {
 	<div id="in_header">
 		<form method="post" action="main.php" id="form_itemsearch">
 			<span id="search_prompt">Search for an item</span>
-			<input type="name" size="30" maxlength="100" />
+			<input type="name" name="searchtext" size="30" maxlength="100" />
 			<input type="submit" value="Submit" />
 			<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 		</form>
@@ -174,7 +175,7 @@ if (!empty($_POST['new_item_name'])) {
 <?php mysql_close($db_server); ?>
 
 <?php 
-	function buildTable($sort_style, $zipsearch){
+	function buildTable($sort_style, $zipsearch, $searchtext){
 		echo '<tr id="center_header"> ' .
 				'<td style="width: 12%">Item</td>' .
 				'<td style="width: 8%">Price</td>' .
@@ -184,6 +185,7 @@ if (!empty($_POST['new_item_name'])) {
 				'<td style="width: 15%">Country of Origin</td>' .
 			  '</tr>';
 		$query = "SELECT * FROM main WHERE zip=\"$zipsearch\" ORDER BY $sort_style";
+		if ($searchtext != null) $query = "SELECT * FROM main WHERE name=\"$searchtext\" ORDER BY $sort_style";
 		$result = mysql_query($query) or die(mysql_error());
 		$rows = mysql_num_rows($result);
 		for ($i = 0; $i < $rows; $i++){
