@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php 	require_once("login.php");
 		$db_server = mysql_connect($db_hostname, $db_username, $db_password);
-		mysql_select_db($db_database, $db_server);	?>
+		mysql_select_db($db_database, $db_server);
+		$zipsearch = $_POST['zip']; 
+		$zipsearch = intval($zipsearch);
+		$sort_style = "name ASC"
+?>
 <html>
 <head>
 <title>Where's It Made?</title>
@@ -10,6 +14,9 @@
 <script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
 <script>
 $(document).ready(function() {
+	<?php if ($zipsearch == null){
+		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
+	} ?>
 	$('#newitem').validate({
 		rules: {
 			new_item_name: {
@@ -40,14 +47,12 @@ $(document).ready(function() {
 				}
 		}
 	});
+	
+	$('#center_table').html('<?php buildTable($sort_style, $zipsearch); ?>');
 }); //end ready
 
 <?php 
-	$zipsearch = $_POST['zip']; 
-	if ($zipsearch == null){
-		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
-		}
-	$zipsearch = intval($zipsearch);
+if (!empty($_POST['new_item_name'])) {
 	$name = $_POST['new_item_name'];
 	$store = $_POST['new_item_store'];
 	$price = $_POST['new_item_price'];
@@ -58,14 +63,11 @@ $(document).ready(function() {
 	function fix_string($string){
 		return htmlentities(mysqlfix($string));
 	}
-	
 	function mysqlfix($string){
 		if (get_magic_quotes_gpc())
 			$string = stripslashes($string);
 		return mysql_real_escape_string($string);
 	}
-	
-	
 	
 	if (
 		$name != null && 
@@ -77,6 +79,8 @@ $(document).ready(function() {
 		$query = ("INSERT INTO main VALUES (NULL ,  '$name',  '$price',  '$description',  '$address',  '$zip',  '$store')");
 		$result = mysql_query($query) or die(mysql_error());
 	}
+}
+	
 	?>
 </script>
 </head>
@@ -92,6 +96,7 @@ $(document).ready(function() {
 			<span id="search_prompt">Search for an item</span>
 			<input type="name" size="30" maxlength="100" />
 			<input type="submit" value="Submit" />
+			<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 		</form>
 	
 		<form method="post" action="main.php" id="form_sort">
@@ -102,30 +107,13 @@ $(document).ready(function() {
 				<option value="pricelh">Price: Low to High</option>
 				<option value="country">Country of Origin</option>
 			</select>
+			<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 		</form>
 	</div>
 </div>
 <div id="center">
 	<table id="center_table">
-		<tr id="center_header">
-			<td style="width: 12%">Item</td>
-			<td style="width: 8%">Price</td>
-			<td style="width: 30%">Description</td>
-			<td style="width: 25%">Store Location</td>
-			<td style="width: 10%">Zip Code</td>
-			<td style="width: 15%">Country of Origin</td>
-		</tr>
-<?php	$query = "SELECT * FROM main WHERE zip=\"$zipsearch\"";
-		$result = mysql_query($query) or die(mysql_error());
-		$rows = mysql_num_rows($result);
-		for ($i = 0; $i < $rows; $i++){
-			echo "<tr>";
-			$thisrow = mysql_fetch_row($result);
-			for ($j = 1; $j < 7; $j++)
-				echo "<td>$thisrow[$j]</td>";
-			echo "</tr>";
-		} ?>
-	
+	<!-- BUILT WITH PHP AND JQUERY -->
 	</table>
 </div>
 
@@ -159,3 +147,26 @@ $(document).ready(function() {
 </body>
 </html>
 <?php mysql_close($db_server); ?>
+
+<?php 
+	function buildTable($sort_style, $zipsearch){
+		echo '<tr id="center_header"> ' .
+				'<td style="width: 12%">Item</td>' .
+				'<td style="width: 8%">Price</td>' .
+				'<td style="width: 30%">Description</td>' .
+				'<td style="width: 25%">Store Location</td>' .
+				'<td style="width: 10%">Zip Code</td>' .
+				'<td style="width: 15%">Country of Origin</td>' .
+			  '</tr>';
+		$query = "SELECT * FROM main WHERE zip=\"$zipsearch\" ORDER BY $sort_style";
+		$result = mysql_query($query) or die(mysql_error());
+		$rows = mysql_num_rows($result);
+		for ($i = 0; $i < $rows; $i++){
+			echo "<tr>";
+			$thisrow = mysql_fetch_row($result);
+			for ($j = 1; $j < 7; $j++)
+				echo "<td>$thisrow[$j]</td>";
+			echo "</tr>";
+		} 
+	}
+?>
