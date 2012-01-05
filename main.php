@@ -130,6 +130,7 @@ if (!empty($_POST['new_item_name'])) {
 				<option value="country">Country of Origin</option>
 			</select>
 			<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
+			<input type="hidden" name="searchtext" value="<?php echo "$searchtext" ?>" />
 		</form>
 	</div>
 </div>
@@ -163,11 +164,13 @@ if (!empty($_POST['new_item_name'])) {
 		<input type="submit" value="Submit" id="new_submit"/>
 	</div>
 		<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
+		<input type="hidden" name="searchtext" value="<?php echo "$searchtext" ?>" />
 	</form>
 	<div id="foot"></div>
 </div>
 <form method="post" action="main.php" id="styleform">
 	<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
+	<input type="hidden" name="searchtext" value="<?php echo "$searchtext" ?>" />
 	<input type="hidden" name="sortingstyle" id="sortstyle_hold" value="<?php echo "$sort_style" ?>" />
 </form>
 </body>
