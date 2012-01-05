@@ -4,7 +4,8 @@
 		mysql_select_db($db_database, $db_server);
 		$zipsearch = $_POST['zip']; 
 		$zipsearch = intval($zipsearch);
-		$sort_style = "name ASC"
+		$sort_style = "name ASC";
+		if ($_POST['sortingstyle'] != null) $sort_style = $_POST['sortingstyle'];
 ?>
 <html>
 <head>
@@ -48,6 +49,25 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('#sort').change(function() {
+		var styler = '';
+		switch ($('#sort option:selected').text()){
+			case "Name":
+				styler = "name ASC";
+				break;
+			case "Price: High to Low":
+				styler = "price DESC";
+				break;
+			case "Price: Low to High":
+				styler = "price ASC";
+				break;
+			case "Country of Origin":
+				styler = "country ASC";
+				break;
+		}
+		$('#sortstyle_hold').attr('value', styler);
+		$('#styleform').submit();
+	});
 	$('#center_table').html('<?php buildTable($sort_style, $zipsearch); ?>');
 }); //end ready
 
@@ -101,7 +121,8 @@ if (!empty($_POST['new_item_name'])) {
 	
 		<form method="post" action="main.php" id="form_sort">
 			<span id="sort_prompt">Sort by:</span>
-			<select name="sort" size="1">
+			<select name="sort" size="1" id="sort">
+				<option value="nothing">Select...</option>
 				<option value="name">Name</option>
 				<option value="pricehl">Price: High to Low</option>
 				<option value="pricelh">Price: Low to High</option>
@@ -113,7 +134,7 @@ if (!empty($_POST['new_item_name'])) {
 </div>
 <div id="center">
 	<table id="center_table">
-	<!-- BUILT WITH PHP AND JQUERY -->
+	<!-- BUILT WITH PHP -->
 	</table>
 </div>
 
@@ -144,6 +165,10 @@ if (!empty($_POST['new_item_name'])) {
 	</form>
 	<div id="foot"></div>
 </div>
+<form method="post" action="main.php" id="styleform">
+	<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
+	<input type="hidden" name="sortingstyle" id="sortstyle_hold" value="<?php echo "$sort_style" ?>" />
+</form>
 </body>
 </html>
 <?php mysql_close($db_server); ?>
