@@ -23,7 +23,6 @@ $(document).ready(function() {
 <div id="top">
 	<div id="picture">
 		<img id="mapimg" src="worldmap.png"></img>
-		<span id="title">Where's It Made?</span>
 	</div>
 </div>
 
