@@ -90,6 +90,11 @@ if (!empty($_POST['new_item_name'])) {
 		return mysql_real_escape_string($string);
 	}
 	
+	$name = fix_string($name);
+	$store = fix_string($store);
+	$address = fix_string($address);
+	$description = fix_string($description);
+	
 	if (
 		$name != null && 
 		$store != null && 

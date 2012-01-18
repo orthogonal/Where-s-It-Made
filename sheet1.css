@@ -45,5 +45,6 @@ input[type="submit"]{
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	text-align: right;
+	text-align: center;
+	width: 100%;
 }
