@@ -39,13 +39,22 @@ body {
 }
 
 #center_table{
-	border-bottom: 6px solid #132CBD;
+	border-bottom: solid 6px black;
 	width: 100%;
+	border-collapse: collapse;
+}
+
+#center_table tr:not(#center_header) td{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 
 #center_header td{
-	border-bottom: 3px solid #132CBD;
+	border-bottom: solid 2px black;
 	text-align: center;
+	font-size: 18px;
 }
 
 #newitem_div{

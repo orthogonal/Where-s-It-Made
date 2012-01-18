@@ -7,7 +7,45 @@
 		$sort_style = "name ASC";
 		if ($_POST['sortingstyle'] != null) $sort_style = $_POST['sortingstyle'];
 		$searchtext = $_POST['searchtext'];
+		
+if (!empty($_POST['new_item_name'])) {
+	$name = $_POST['new_item_name'];
+	$country = $_POST['new_item_country'];
+	$store = $_POST['new_item_store'];
+	$price = $_POST['new_item_price'];
+	$address = $_POST['new_item_address'];
+	$description = $_POST['new_item_description'];
+	$zip = $_POST['new_item_zip'];
+	
+	function fix_string($string){
+		return htmlentities(mysqlfix($string), ENT_QUOTES);
+	}
+	function mysqlfix($string){
+		if (get_magic_quotes_gpc())
+			$string = stripslashes($string);
+		return mysql_real_escape_string($string);
+	}
+	
+	$name = fix_string($name);
+	$store = fix_string($store);
+	$address = fix_string($address);
+	$description = fix_string($description);
+	$country = fix_string($country);
+	
+	if (
+		$name != null && 
+		$store != null && 
+		$price != null &&
+		$address != null &&
+		$description != null &&
+		(10000 <= $zip) && ($zip <= 99999)){
+		$query = ("INSERT INTO main VALUES (NULL ,  '$name',  '$price',  '$description',  '$store', '$address',  '$zip',  '$country')");
+		$result = mysql_query($query) or die(mysql_error());
+	}
+}
+	
 ?>
+
 <html>
 <head>
 <title>Where's It Made?</title>
@@ -71,43 +109,6 @@ $(document).ready(function() {
 	});
 	$('#center_table').html('<?php buildTable($sort_style, $zipsearch, $searchtext); ?>');
 }); //end ready
-
-<?php 
-if (!empty($_POST['new_item_name'])) {
-	$name = $_POST['new_item_name'];
-	$store = $_POST['new_item_store'];
-	$price = $_POST['new_item_price'];
-	$address = $_POST['new_item_address'];
-	$description = $_POST['new_item_description'];
-	$zip = $_POST['new_item_zip'];
-	
-	function fix_string($string){
-		return htmlentities(mysqlfix($string));
-	}
-	function mysqlfix($string){
-		if (get_magic_quotes_gpc())
-			$string = stripslashes($string);
-		return mysql_real_escape_string($string);
-	}
-	
-	$name = fix_string($name);
-	$store = fix_string($store);
-	$address = fix_string($address);
-	$description = fix_string($description);
-	
-	if (
-		$name != null && 
-		$store != null && 
-		$price != null &&
-		$address != null &&
-		$description != null &&
-		(10000 <= $zip) && ($zip <= 99999)){
-		$query = ("INSERT INTO main VALUES (NULL ,  '$name',  '$price',  '$description',  '$address',  '$zip',  '$store')");
-		$result = mysql_query($query) or die(mysql_error());
-	}
-}
-	
-	?>
 </script>
 </head>
 
@@ -156,6 +157,7 @@ if (!empty($_POST['new_item_name'])) {
 	
 	<table id="newitem_table">
 		<tr><td>Item: <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry" /></td>
+		<tr><td>Made In: <input type="name" name="new_item_country" size="30" maxlength="100" class="new_entry" /></td>
 		<td rowspan='6' id='bigtd'><input type="submit" value="Submit" id="new_submit" /></td></tr>
 		<tr><td>Price: <input type="name" name="new_item_price" size="30" maxlength="30" class="new_entry" /><span style='float: right;'>$</span></td></tr>
 		<tr><td>Store: <input type="name" name="new_item_store" size="30" maxlength="100" class="new_entry" /></td></tr>
