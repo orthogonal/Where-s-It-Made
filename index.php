@@ -22,7 +22,7 @@ $(document).ready(function() {
 <body>
 <div id="top">
 	<div id="picture">
-		<img id="mapimg" src="worldmap.png"></img>
+		<!-- <img id="mapimg" src="worldmap.png"></img> -->
 	</div>
 </div>
 

@@ -1,6 +1,6 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #BF6F30;
+	color: black;
 }
 
 #picture{
@@ -48,3 +48,11 @@ input[type="submit"]{
 	text-align: center;
 	width: 100%;
 }
+
+button{
+	border-radius: 5px;
+	width: 90px;
+	text-align: center;
+	background-color: #FFB173;
+	border-color:  #FFB173;
+	}
