@@ -7,11 +7,25 @@
 <script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
 <script>
 $(document).ready(function() {
+	$('#search').submit(function(evt){
+		if (!$('#search').valid()){
+			alert("Please enter a valid zip code.");
+			evt.preventDefault();
+		}
+	});
+	
 	$('#search').validate({
 		rules: {
 			zip: {
 					required: true,
 					range: [10000, 99999]
+				}
+		},
+		
+		messages: {
+			zip: {
+					required: "",
+					range: ""
 				}
 		}
 	});
@@ -34,7 +48,7 @@ $(document).ready(function() {
 			<input type="text" name="zip" size="10" maxlength="5" />
 		</tr></td>
 		<tr><td id="buttonRow">
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Submit"/>
 		</tr></td>
 		</table>
 	</form>
