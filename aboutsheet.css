@@ -1,23 +1,30 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #BF6F30;
+	color: black;
 }
 
 #titlediv{
-	color: blue;
+	color: black;
 	font-size: 24px;
-	border-bottom:  3px solid blue;
+	border-bottom:  3px solid black;
 }
 
 .question{
-	border-bottom:  3px solid blue;
+	border-bottom:  3px solid black;
 }
 
 .header{
-	color: blue;
+	color: black;
+	font-weight: 600;
 	font-size: 16px;
 }
 
 .answer{
 	margin-left: 50px;
+}
+
+a{
+	text-decoration: none;
+	font-weight: 600;
+	color: black;
 }

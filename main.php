@@ -170,7 +170,7 @@ $(document).ready(function() {
 		<form method="post" action="main.php" id="form_itemsearch">
 			<span id="search_prompt">Search for an item</span>
 			<input type="name" name="searchtext" size="30" maxlength="100" />
-			<input type="submit" value="Submit" />
+			<input type="submit" value="Search" />
 			<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 		</form>
 	
