@@ -193,7 +193,7 @@ $(document).ready(function() {
 				'<td style="width: 10%">Zip Code</td>' .
 			  '</tr>';
 		$query = "SELECT * FROM main WHERE zip=\"$zipsearch\" ORDER BY $sort_style";
-		if ($searchtext != null) $query = "SELECT * FROM main WHERE name=\"$searchtext\" ORDER BY $sort_style";
+		if ($searchtext != null) $query = "SELECT * FROM main WHERE name LIKE '%$searchtext%' ORDER BY $sort_style";
 		$result = mysql_query($query) or die(mysql_error());
 		$rows = mysql_num_rows($result);
 		for ($i = 0; $i < $rows; $i++){
