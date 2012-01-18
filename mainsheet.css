@@ -1,10 +1,18 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #BF6F30;
+	color: black;
+	margin: 0px;
 }
 
-#zip{
-	width: 100%
+.content{
+	color: black;
+	padding: 15px;
+}
+
+#title{
+	width: 100%;
+	font-size: 2em;
+	text-align: center;
 }
 
 #in_header{
@@ -41,9 +49,16 @@ body {
 }
 
 #newitem_div{
-	padding: 10px;
-	height: 120px;
-	width: 100%;
+	margin-top: 40px;
+	margin-left: 15px;
+	width: 50%;
+	padding: 15px;
+	border-radius: 10px;
+	border-width: 5px;
+	border-color: black;
+	border-style: solid;
+	background-color: #FF9540;
+	color: black;
 }
 
 #formprompt{
@@ -53,27 +68,27 @@ body {
 
 #newitem{
 	height: 100%;
+	width: 100%;
 }
 
 #newitem_table{
-	float: left;
-	width: 70%;
+	width: 100%;
 	top: 20px;
 	left: 0;
 	font-size: 20px;
 }
 
-#button_div{
-	float: left;
+#newitem_table td:not(#bigtd){
+	width: 70%;
+}
+
+#bigtd{
 	width: 30%;
-	height: 100%;
-	position: relative;
 }
 
 #new_submit{
-	position: absolute;
-	top: 40%;
-	left: 40%;
+	vertical-align: middle;
+	margin-left: 30%;
 	font-size: 24px;
 }
 
@@ -84,11 +99,8 @@ body {
 .col1, .col2{
 	width: 48%;
 }
-.spacer{
-	width: 4%;
-}
 
 .new_entry{
-	float: right;
 	font-size: 20px;
+	float: right;
 }

@@ -112,11 +112,14 @@ if (!empty($_POST['new_item_name'])) {
 </head>
 
 <body>
+
+<div class="content">
+
+<div id="title">
+	Items in <?php echo "$zipsearch"; ?>
+</div>
+
 <div id="header">
-	<span id="zip">
-		<?php echo "$zipsearch"; ?>
-	</span>
-	
 	<div id="in_header">
 		<form method="post" action="main.php" id="form_itemsearch">
 			<span id="search_prompt">Search for an item</span>
@@ -145,34 +148,28 @@ if (!empty($_POST['new_item_name'])) {
 	</table>
 </div>
 
+</div>
+
 <div id="newitem_div">
 	<span id="formprompt">Enter an item</span>
 	<form method="post" action="main.php" id="newitem">
+	
 	<table id="newitem_table">
-		<tr>
-			<td class="col1">Item: <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry"/></td>
-			<td class="spacer">
-			<td class="col2">Store: <input type="name" name="new_item_store" size="30" maxlength="100" class="new_entry"/></td>
-		</tr>
-		<tr>
-			<td class="col1">Price: <span="new_item_price" class="new_entry">$<input type="name"  name="new_item_price" size="30" maxlength="30" /></span></td>
-			<td class="spacer">
-			<td class="col2">Address: <input type="name" name="new_item_address" size="30" maxlength="100" class="new_entry"/></td>
-		</tr>
-		<tr>
-			<td class="col1">Description: <input type="name" name="new_item_description" size="30" maxlength="100" class="new_entry"/></td>
-			<td class="spacer">
-			<td class="col2"><input type="name" name="new_item_zip" size="5" maxlength="5" class="new_entry"/><span class="new_entry">Zip Code:&nbsp&nbsp&nbsp</span></td>
-		</tr>
+		<tr><td>Item: <input type="name" name="new_item_name" size="30" maxlength="100" class="new_entry" /></td>
+		<td rowspan='6' id='bigtd'><input type="submit" value="Submit" id="new_submit" /></td></tr>
+		<tr><td>Price: <input type="name" name="new_item_price" size="30" maxlength="30" class="new_entry" /><span style='float: right;'>$</span></td></tr>
+		<tr><td>Store: <input type="name" name="new_item_store" size="30" maxlength="100" class="new_entry" /></td></tr>
+		<tr><td>Address: <input type="name" name="new_item_address" size="30" maxlength="100" class="new_entry" /></td></tr>
+		<tr><td>Zip Code: <input type="name" name="new_item_zip" size="5" maxlength="5" class="new_entry" /></td></tr>
+		<tr><td>Description: <input type="name" name="new_item_description" size="30" maxlength="100" class="new_entry" /></td></tr>
 	</table>
-	<div id="button_div">
-		<input type="submit" value="Submit" id="new_submit"/>
-	</div>
+	
 		<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 		<input type="hidden" name="searchtext" value="<?php echo "$searchtext" ?>" />
+		
 	</form>
-	<div id="foot"></div>
 </div>
+
 <form method="post" action="main.php" id="styleform">
 	<input type="hidden" name="zip" value="<?php echo "$zipsearch" ?>" />
 	<input type="hidden" name="searchtext" value="<?php echo "$searchtext" ?>" />
@@ -186,11 +183,12 @@ if (!empty($_POST['new_item_name'])) {
 	function buildTable($sort_style, $zipsearch, $searchtext){
 		echo '<tr id="center_header"> ' .
 				'<td style="width: 12%">Item</td>' .
-				'<td style="width: 8%">Price</td>' .
-				'<td style="width: 30%">Description</td>' .
+				'<td style="width: 15%">Country of Origin</td>' .
+				'<td style="width: 8%">Price Estimate</td>' .
+				'<td style="width: 20%">Description</td>' .
+				'<td style="width: 10%">Store</td>' .
 				'<td style="width: 25%">Store Location</td>' .
 				'<td style="width: 10%">Zip Code</td>' .
-				'<td style="width: 15%">Country of Origin</td>' .
 			  '</tr>';
 		$query = "SELECT * FROM main WHERE zip=\"$zipsearch\" ORDER BY $sort_style";
 		if ($searchtext != null) $query = "SELECT * FROM main WHERE name=\"$searchtext\" ORDER BY $sort_style";
@@ -199,8 +197,13 @@ if (!empty($_POST['new_item_name'])) {
 		for ($i = 0; $i < $rows; $i++){
 			echo "<tr>";
 			$thisrow = mysql_fetch_row($result);
-			for ($j = 1; $j < 7; $j++)
-				echo "<td>$thisrow[$j]</td>";
+			echo "<td>$thisrow[1]</td>";
+			echo "<td>$thisrow[7]</td>";
+			echo "<td>$$thisrow[2]</td>";
+			echo "<td>$thisrow[3]</td>";
+			echo "<td>$thisrow[4]</td>";
+			echo "<td>$thisrow[5]</td>";
+			echo "<td>$thisrow[6]</td>";
 			echo "</tr>";
 		} 
 	}
