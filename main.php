@@ -57,6 +57,14 @@ $(document).ready(function() {
 	<?php if ($zipsearch == null){
 		echo "window.location.replace('http://lathamcity.com/wheresitmade/index.php');";
 	} ?>
+	
+	$('#newitem').submit(function(evt){
+		if (!$('#newitem').valid()){
+			alert("There is an error in your input.");
+			evt.preventDefault();
+		}
+	});
+	
 	$('#newitem').validate({
 		rules: {
 			new_item_name: {
@@ -84,6 +92,43 @@ $(document).ready(function() {
 				required: true,
 				digits: true,
 				range: [10000, 99999]
+				},
+			new_item_country: {
+				required: true,
+				minlength: 1
+				}
+		},
+		
+		messages: {
+			new_item_name: {
+				required: "",
+				minlength: ""
+				},
+			new_item_store: {
+				required: "",
+				minlength: ""
+				},
+			new_item_price: {
+				required: "",
+				number: "",
+				min: ""
+				},
+			new_item_address: {
+				required: "",
+				minlength: ""
+				},
+			new_item_description: {
+				required: "",
+				minlength: ""
+				},
+			new_item_zip: {
+				required: "",
+				digits: "",
+				range: ""
+				},
+			new_item_country: {
+				required: "",
+				minlength: ""
 				}
 		}
 	});
