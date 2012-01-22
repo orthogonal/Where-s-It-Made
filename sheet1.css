@@ -1,6 +1,7 @@
 body {
 	background-color: #BF6F30;
 	color: black;
+	font-family: Georgia, "Times New Roman", sans-serif;
 	background: url('http://www.lathamcity.com/wheresitmade/wim.jpg') no-repeat left top fixed;
     background-size: cover;
     -webkit-background-size: cover;
@@ -21,16 +22,30 @@ body {
 }
 
 #search{
+	text-align: center;
 	padding-top: 10px;
-	width: 350px;
+	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: #BF6F30;
+	border-radius: 100px;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;
+	border-color: black;
+	border-width: 3px;
+	border-style: solid;
 }
 
 #prompt{
 	padding-top: 6px;
 	font-size: 24px;
 	float: left;
+}
+
+.homecenter{
+	margin-left: auto;
+	margin-right: auto;
 }
 
 input[type="text"]{

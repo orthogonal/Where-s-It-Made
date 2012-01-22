@@ -43,14 +43,14 @@ $(document).ready(function() {
 
 <div id="formDiv">
 	<form method="post" action="main.php" id="search">
-		<table>
-		<tr><td>
+		<table class="homecenter">
+		<tr><td class="homecenter">
 			<span id="prompt">Enter Zip Code:</span>
 			<input type="text" name="zip" size="10" maxlength="5" />
-		</tr></td>
-		<tr><td id="buttonRow">
+		</td></tr>
+		<tr><td id="buttonRow" class="homecenter">
 		<input type="submit" value="Submit"/>
-		</tr></td>
+		</td></tr>
 		</table>
 	</form>
 </div>
