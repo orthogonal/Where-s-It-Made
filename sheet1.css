@@ -29,9 +29,9 @@ body {
 	margin-right: auto;
 	background-color: #BF6F30;
 	border-radius: 100px;
-	-moz-box-shadow: -5px -5px 5px #888;
-	-webkit-box-shadow: -5px -5px 5px #888;
-	box-shadow: -5px -5px 5px #888;
+	-moz-box-shadow: -5px -5px 5px #333232;
+	-webkit-box-shadow: -5px -5px 5px #333232;
+	box-shadow: -5px -5px 5px #333232;
 	border-color: black;
 	border-width: 3px;
 	border-style: solid;
