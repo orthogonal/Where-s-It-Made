@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="sheet1.css" />
 <script src="http://www.lathamcity.com/_js/jquery-1.7.js"></script>
 <script src="http://www.lathamcity.com/_js/jquery.validate.min.js"></script>
+<script src="http://www.lathamcity.com/_js/jquery.backstretch.min.js"></script>
 <script>
 $(document).ready(function() {
 	$('#search').submit(function(evt){
@@ -13,7 +14,7 @@ $(document).ready(function() {
 			evt.preventDefault();
 		}
 	});
-	
+
 	$('#search').validate({
 		rules: {
 			zip: {

@@ -1,6 +1,11 @@
 body {
 	background-color: #BF6F30;
 	color: black;
+	background: url('http://www.lathamcity.com/wheresitmade/wim.jpg') no-repeat left top fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 #picture{
