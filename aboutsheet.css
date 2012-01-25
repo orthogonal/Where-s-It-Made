@@ -1,7 +1,10 @@
 body {
-	background-color: #BF6F30;
+	background-color: #00792D;
 	color: black;
 	font-family: Georgia, "Times New Roman", sans-serif;
+	background-image: url('http://www.lathamcity.com/wheresitmade/greenbg.png');
+	background-repeat: repeat;
+	margin: 0px;
 }
 
 #titlediv{
@@ -21,11 +24,19 @@ body {
 }
 
 .answer{
-	margin-left: 50px;
+	padding-left: 50px;
 }
 
 a{
 	text-decoration: none;
 	font-weight: 600;
 	color: black;
+}
+
+.question, #titlediv{
+	padding: 15px;
+}
+
+.container{
+	background-color: rgba(255, 255, 255, .5);
 }
