@@ -15,6 +15,9 @@ body {
 	border-bottom-left-radius: 10px 50px;
 	-moz-border-radius-bottomright: 10px 50px;
 	-moz-border-radius-bottomleft: 10px 50px;
+	-moz-box-shadow: 0 0 5px 5px #333232;
+	-webkit-box-shadow: 0 0 5px 5px #333232;
+	box-shadow: 0 0 5px 5px #333232;
 }
 
 #title{
