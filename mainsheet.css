@@ -15,9 +15,9 @@ body {
 	border-bottom-left-radius: 10px 50px;
 	-moz-border-radius-bottomright: 10px 50px;
 	-moz-border-radius-bottomleft: 10px 50px;
-	-moz-box-shadow: 0 0 5px 5px #333232;
-	-webkit-box-shadow: 0 0 5px 5px #333232;
-	box-shadow: 0 0 5px 5px #333232;
+	-moz-box-shadow: 0 0 20px 20px #333232;
+	-webkit-box-shadow: 0 0 20px 20px #333232;
+	box-shadow: 0 0 20px 20px #333232;
 }
 
 #title{
@@ -62,8 +62,8 @@ body {
 #center_table tr:not(#center_header) td{
 	padding-top: 10px;
 	padding-bottom: 10px;
-	padding-left: 1px;
-	padding-right: 1px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 #center_header td{
@@ -80,7 +80,7 @@ body {
 	border-width: 5px;
 	border-color: black;
 	border-style: solid;
-	background-color: #BF6F30;
+	background-color: rgba(255, 255, 255, .5);
 	color: black;
 	min-width:800px;
 	width: 50%;
