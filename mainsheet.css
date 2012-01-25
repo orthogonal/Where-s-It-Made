@@ -10,6 +10,7 @@ body {
 .content{
 	color: black;
 	padding: 15px;
+	background-color: #C3D690;
 	background-color: rgba(255, 255, 255, .5);
 	border-bottom-right-radius: 10px 50px;
 	border-bottom-left-radius: 10px 50px;
@@ -80,6 +81,7 @@ body {
 	border-width: 5px;
 	border-color: black;
 	border-style: solid;
+	background-color: #C3D690;
 	background-color: rgba(255, 255, 255, .5);
 	color: black;
 	min-width:800px;
