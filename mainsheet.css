@@ -1,13 +1,20 @@
 body {
-	background-color: #FF9540;
+	background-color: #00792D;
 	color: black;
 	font-family: Georgia, "Times New Roman", sans-serif;
+	background-image: url('http://www.lathamcity.com/wheresitmade/greenbg.png');
+	background-repeat: repeat;
 	margin: 0px;
 }
 
 .content{
 	color: black;
 	padding: 15px;
+	background-color: rgba(255, 255, 255, .5);
+	border-bottom-right-radius: 10px 50px;
+	border-bottom-left-radius: 10px 50px;
+	-moz-border-radius-bottomright: 10px 50px;
+	-moz-border-radius-bottomleft: 10px 50px;
 }
 
 #title{
