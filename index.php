@@ -8,6 +8,8 @@
 <script src="http://www.lathamcity.com/_js/jquery.backstretch.min.js"></script>
 <script>
 $(document).ready(function() {
+	$('#zip_enter').focus();
+	
 	$('#search').submit(function(evt){
 		if (!$('#search').valid()){
 			alert("Please enter a valid zip code.");
@@ -46,7 +48,7 @@ $(document).ready(function() {
 		<table class="homecenter">
 		<tr><td class="homecenter">
 			<span id="prompt">Enter Zip Code:</span>
-			<input type="text" name="zip" size="10" maxlength="5" />
+			<input type="text" id="zip_enter" name="zip" size="10" maxlength="5" />
 		</td></tr>
 		<tr><td id="buttonRow" class="homecenter">
 		<input type="submit" value="Submit"/>
