@@ -1,5 +1,5 @@
 body {
-	background-color: #BF6F30;
+	background-color: #FF9540;
 	color: black;
 	font-family: Georgia, "Times New Roman", sans-serif;
 	margin: 0px;
@@ -70,7 +70,7 @@ body {
 	border-width: 5px;
 	border-color: black;
 	border-style: solid;
-	background-color: #FF9540;
+	background-color: #BF6F30;
 	color: black;
 	min-width:800px;
 	width: 50%;
